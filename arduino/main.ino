@@ -31,7 +31,7 @@ void loop()
 
   Serial.println(distance);
     delay(40);
-    val = digitalRead(sensor);   // read sensor value
+    val = digitalRead(sensor);   
     if (val == HIGH) {           // check if the sensor is HIGH
       digitalWrite(led, HIGH);   // turn LED ON
       delay(100);                // delay 100 milliseconds 
@@ -43,7 +43,7 @@ void loop()
     } 
     else {
         digitalWrite(led, LOW); // turn LED OFF
-        delay(200);             // delay 200 milliseconds 
+        delay(210);             // delay 200 milliseconds 
         
         if (state == HIGH){
           Serial.println("Motion stopped!");
