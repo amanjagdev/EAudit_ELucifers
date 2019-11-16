@@ -24,6 +24,7 @@ void setup()
 
 void loop()
 {
+  tmr= millis();
   digitalWrite(trigpin, LOW);
   delayMicroseconds(2);
 
@@ -53,6 +54,7 @@ void loop()
         servo.write(angle);           
         delay(5);       
       }     
+      cst=millis() - tmr
                        
     } 
 
