@@ -1,7 +1,7 @@
 const int trigpin = 10;
 const int echopin = 11;
 int led = 13;                
-int sensor = 2;             
+int sp = 2;             
 int state = LOW;             
 int val = 0;              
 
@@ -10,7 +10,7 @@ long duration,distance;
 void setup()
 {
   pinMode(led, OUTPUT);      
-  pinMode(sensor, INPUT);        
+  pinMode(sp, INPUT);        
   pinMode(trigpin,OUTPUT);
   pinMode(echopin,INPUT);
   Serial.begin(9600);    
@@ -31,25 +31,13 @@ void loop()
 
   Serial.println(distance);
     delay(40);
-    val = digitalRead(sensor);   
-    if (val == HIGH) {           // check if the sensor is HIGH
+    val = digitalRead(sp);   
+    if (val == HIGH || distance < 10) {           // check if the sensor is HIGH
       digitalWrite(led, HIGH);   // turn LED ON
-      delay(100);                // delay 100 milliseconds 
-      
-      if (state == LOW) {
-        Serial.println("Motion detected!"); 
-        state = HIGH;       // update variable state to HIGH
-      }
+      delay(100);    
+                  // delay 100 milliseconds 
     } 
-    else {
-        digitalWrite(led, LOW); // turn LED OFF
-        delay(210);             // delay 200 milliseconds 
-        
-        if (state == HIGH){
-          Serial.println("Motion stopped!");
-          state = LOW;       // update variable state to LOW
-      }
-  }
+
 }
 
 
