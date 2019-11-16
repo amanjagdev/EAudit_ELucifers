@@ -1,7 +1,13 @@
 import serial
 import sqlite3
 import os
-
+from datetime import datetime
+from datetime import date
+today = date.today()
+print(today)
+now = datetime.now()
+current_time = now.strftime("%H:%M:%S")
+print(current_time)
 conn = sqlite3.connect("main.db")
 
 cursor = conn.cursor()
