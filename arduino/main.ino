@@ -9,9 +9,11 @@ long duration,distance;
  
 void setup()
 {
-Serial.begin(9600);
-pinMode(trigpin,OUTPUT);
-pinMode(echopin,INPUT);
+  pinMode(led, OUTPUT);      
+  pinMode(sensor, INPUT);        
+  pinMode(trigpin,OUTPUT);
+  pinMode(echopin,INPUT);
+  Serial.begin(9600);    
 }
 
 void loop()
@@ -29,7 +31,7 @@ void loop()
 
   Serial.println(distance);
     delay(40);
-
+  
 
   }
 
