@@ -50,7 +50,7 @@ void loop()
           state = LOW;       // update variable state to LOW
       }
   }
-  }
+}
 
 
 
