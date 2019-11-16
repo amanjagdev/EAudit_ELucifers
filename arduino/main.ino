@@ -57,6 +57,13 @@ void loop()
       cst=millis() - tmr
                        
     } 
+    else
+    {
+      digitalWrite(led, LOW);
+    }
+    Serial.println(cst);
+    
+    
 
 }
 
