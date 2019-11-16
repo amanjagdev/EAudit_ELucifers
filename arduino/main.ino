@@ -7,24 +7,26 @@ int servoPin = 5;
 int led = 13;                
 int sp = 2;             
 int state = LOW;             
-int val = 0;              
+int val = 0;         
+int tmr =0;
+int cst =0;     
 
 long duration,distance;
  
 void setup()
 {
   servo.attach(servoPin);
-   pinMode(servo,OUTPUT);
   pinMode(led, OUTPUT);      
   pinMode(sp, INPUT);        
   pinMode(trigpin,OUTPUT);
   pinMode(echopin,INPUT);
-  Serial.begin(9600);    
+  Serial.begin(9600);   
+  tmr= millis(); 
 }
 
 void loop()
 {
-  tmr= millis();
+  
   digitalWrite(trigpin, LOW);
   delayMicroseconds(2);
 
@@ -36,7 +38,6 @@ void loop()
   distance=duration*0.017;
 
 
-  Serial.println(distance);
     delay(40);
     val = digitalRead(sp);   
     if (val == HIGH || distance < 10) {           // check if the sensor is HIGH
@@ -54,14 +55,14 @@ void loop()
         servo.write(angle);           
         delay(5);       
       }     
-      cst=millis() - tmr
+      cst=millis() - tmr;
                        
     } 
     else
     {
       digitalWrite(led, LOW);
     }
-    Serial.println(cst);
+    Serial.println(cst/1000);
     
     
 
