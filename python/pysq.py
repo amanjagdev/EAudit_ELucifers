@@ -28,7 +28,14 @@ if needs_creation:
 #                     CREATE TABLE elements (id INTEGER PRIMARY KEY AUTOINCREMENT, Name, date CURDATE )
 #                     """)
 
-portno = "COM5"
-ser = serial.Serial(portno, 9600)
+portno = 'Com6'
+# unit_charge = 0.1
+# bill = 0
 
-print(ser)
+arduinosedata = serial.Serial(portno, 9600)
+while(1==1):
+    if(arduinosedata.inWaiting()>0):
+        emdata = arduinosedata.readline()
+        print(emdata.decode('utf-8'))
+
+bill += curr_time*uni_charge
