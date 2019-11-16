@@ -1,6 +1,9 @@
 const int trigpin = 10;
 const int echopin = 11;
-
+int led = 13;                
+int sensor = 2;             
+int state = LOW;             
+int val = 0;              
 
 long duration,distance;
  
@@ -29,3 +32,4 @@ void loop()
 
 
   }
+
