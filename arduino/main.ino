@@ -1,7 +1,11 @@
+#include <Servo.h> 
+int servo = p3; 
+Servo servo;  
+int angle = 0;   // servo position in degrees 
 const int trigpin = 10;
 const int echopin = 11;
 int led = 13;                
-int sensor = 2;             
+int sp = 2;             
 int state = LOW;             
 int val = 0;              
 
@@ -9,8 +13,12 @@ long duration,distance;
  
 void setup()
 {
+  servo.attach(servoPin);
+  pinMode(p1,OUTPUT);
+   pinMode(p2,INPUT);
+   pinMode(servo,OUTPUT);
   pinMode(led, OUTPUT);      
-  pinMode(sensor, INPUT);        
+  pinMode(sp, INPUT);        
   pinMode(trigpin,OUTPUT);
   pinMode(echopin,INPUT);
   Serial.begin(9600);    
@@ -31,25 +39,25 @@ void loop()
 
   Serial.println(distance);
     delay(40);
-    val = digitalRead(sensor);   // read sensor value
-    if (val == HIGH) {           // check if the sensor is HIGH
+    val = digitalRead(sp);   
+    if (val == HIGH || distance < 10) {           // check if the sensor is HIGH
       digitalWrite(led, HIGH);   // turn LED ON
-      delay(100);                // delay 100 milliseconds 
-      
-      if (state == LOW) {
-        Serial.println("Motion detected!"); 
-        state = HIGH;       // update variable state to HIGH
-      }
+      delay(100);
+      // scan from 0 to 180 p3
+       for(angle = 0; angle < 180; angle++)  
+      {          
+         servo.write(angle);               
+          delay(10);                   
+       } 
+       // now scan back from 180 to 0 degrees
+      for(angle = 360; angle > 0; angle--)    
+      {                                
+        servo.write(angle);           
+        delay(5);       
+      }     
+                       
     } 
-    else {
-        digitalWrite(led, LOW); // turn LED OFF
-        delay(200);             // delay 200 milliseconds 
-        
-        if (state == HIGH){
-          Serial.println("Motion stopped!");
-          state = LOW;       // update variable state to LOW
-      }
-  }
+
 }
 
 
