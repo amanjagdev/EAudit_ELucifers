@@ -29,13 +29,20 @@ if needs_creation:
 #                     """)
 
 portno = 'Com6'
-# unit_charge = 0.1
-# bill = 0
+bill = 0
+appliance_watt = 20
+total_usage = 0
+rate = 5
+time_usage =0.0
 
 arduinosedata = serial.Serial(portno, 9600)
-while(1==1):
-    if(arduinosedata.inWaiting()>0):
-        emdata = arduinosedata.readline()
-        print(emdata.decode('utf-8'))
-
-bill += curr_time*uni_charge
+try:
+    while(1==1):
+        if(arduinosedata.inWaiting()>0):
+            emdata = arduinosedata.readline()
+            insecs = emdata.decode('utf-8')
+except:
+    time_usage = int(insecs) / 3600;
+    total_usage = appliance_watt * time_usage
+    bill = rate* total_usage
+    print(bill)
