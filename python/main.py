@@ -1,34 +1,21 @@
 import wolframalpha 
-# import speech_recognition as sr 
+import serial
+import pyttsx3
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSSpeech_TTS_en-AU_Hayley')
+rate = engine.getProperty('rate')
+volume = engine.getProperty('volume')
+voice = engine.getProperty('voice')
+engine.setProperty('rate', 160)
+engine.say('Hi! I am from Wolframalpha! I can answer your each and every question')
+engine.runAndWait()
 
-# r = sr.Recognizer()
-
-# r.dynamic_energy_threshold = True
-
-# r.pause_threshold = 2
-
-# with sr.Microphone() as source:
-#     audio = r.listen(source)
-
-# try:
-#     text = r.recognise_google(audio)
-
-# except sr.UnknownValueError:
-#     print("Google Speech Recognition could not understand audio")
-
-# except sr.RequestError as e:
-#     print("Could not request results from Google Speech Recognition service; {0}".format(e))
-
-
-question = input("Questions : ")
-
-app_id = "PX2T6G-L2XQ4H9TE3" #wolfram-alpha id
-
+question = input("Enter the Question : ")
+app_id = "PX2T6G-L2XQ4H9TE3" 
 client = wolframalpha.Client(app_id) 
-  
-res = client.query(question) 
-  
-# Includes only text from the response 
-answer = next(res.results).text 
-  
-print(answer) 
+res = client.query(question)  
+answer = next(res.results).text
+engine.say(answer)
+engine.runAndWait()
+print(answer)
