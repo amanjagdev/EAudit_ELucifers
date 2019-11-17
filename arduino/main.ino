@@ -1,6 +1,6 @@
 #include <Servo.h>  
 Servo servo;  
-int angle = 0;   // servo position in degrees 
+int angle = 0;    
 const int trigpin = 10;
 const int echopin = 11;
 int servoPin = 5;
@@ -9,7 +9,8 @@ int sp = 2;
 int state = LOW;             
 int val = 0;         
 int tmr =0;
-int cst =0;     
+int cst =0; 
+int c=0; 
 
 long duration,distance;
  
@@ -56,16 +57,16 @@ void loop()
         delay(5);       
       }     
       cst=millis() - tmr;
+      c=1;
                        
     } 
     else
     {
       digitalWrite(led, LOW);
     }
-    Serial.println(cst/1000);
+    Serial.println(cst/1000); // stopwatch
+    Serial.println(c); // for adding into database instantly
     
     
 
 }
-
-

@@ -23,9 +23,10 @@ if needs_creation:
     db_connection.commit()
     print("Database created.")
 
+# Creating Database
 # cursor.executescript("""
-#                     DROP TABLE IF EXISTS elements;
-#                     CREATE TABLE elements (id INTEGER PRIMARY KEY AUTOINCREMENT, Name, date CURDATE )
+#                     DROP TABLE IF EXISTS Eaudit;
+#                     CREATE TABLE Eaudit (sno INTEGER, tdate DATE, start_time TIME, duration TIME ,bill FLOAT)
 #                     """)
 
 portno = 'Com6'
@@ -46,3 +47,5 @@ except:
     total_usage = appliance_watt * time_usage
     bill = rate* total_usage
     print(bill)
+
+cursor.execute('INSERT INTO Eaudit VALUES(1,"%S","%S","%s","%d")'%(bill)%(bill)%(bill))
