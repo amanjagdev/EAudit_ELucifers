@@ -23,10 +23,11 @@ if needs_creation:
     db_connection.commit()
     print("Database created.")
 
-# cursor.executescript("""
-#                     DROP TABLE IF EXISTS elements;
-#                     CREATE TABLE elements (id INTEGER PRIMARY KEY AUTOINCREMENT, Name, date CURDATE )
-#                     """)
+# Creating Database
+cursor.executescript("""
+                    DROP TABLE IF EXISTS Eaudit;
+                    CREATE TABLE Eaudit (sno INTEGER, tdate DATE, start_time TIME, duration TIME ,bill FLOAT)
+                    """)
 
 portno = 'Com6'
 bill = 0
