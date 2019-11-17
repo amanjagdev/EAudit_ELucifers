@@ -48,7 +48,7 @@
               <a href="./living.html" class="dropdown-item">
                 <i class="material-icons">layers</i> Living Room
               </a>
-              <a href="./Bill_Page.html" class="dropdown-item">
+              <a href="./Bill_Page.php" class="dropdown-item">
                 <i class="material-icons">layers</i> Billing
               </a>
             </div>
