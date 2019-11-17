@@ -48,4 +48,7 @@ except:
     bill = rate* total_usage
     print(bill)
 
-cursor.execute('INSERT INTO Eaudit VALUES(1,"%S","%S","%s","%d")'%(bill)%(bill)%(bill))
+# cursor.execute('INSERT INTO Eaudit VALUES(1,"%S","%S","%s","%d")'%(bill)%(bill)%(bill))
+f= open("../bill.txt","w+")
+bill = str(bill)
+f.write(bill)
