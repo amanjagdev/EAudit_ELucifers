@@ -86,12 +86,18 @@
         <h2 class="title">Total Bill: </h2>
         <div>
           <?php
-            $user = 'root';
-            $pass = '';
-            $db = 'test_db';
+            // $user = 'root';
+            // $pass = '';
+            // $db = 'test_db';
 
-            $db = new mysqli('localhost', $user , $pass , $db) or die("Unable to connect");
-            echo "Connected";
+            // $db = new mysqli('localhost', $user , $pass , $db) or die("Unable to connect");
+            
+
+            // $tobe = 'SELECT sno from Eaudit where sno = 1';
+            // $tobepr = mysqli_query($db,$tobe);
+            // echo "$tobepr";
+            $document = file_get_contents('./bill.txt');
+            echo $document;
 
           ?>
         </div>
