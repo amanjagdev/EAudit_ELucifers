@@ -60,6 +60,14 @@ void loop()
   digitalWrite(TRIGGERPIN, HIGH);
   delayMicroseconds(12); 
   
-  
+  digitalWrite(TRIGGERPIN, LOW);
+  duration = pulseIn(ECHOPIN, HIGH);
+  distance = (duration/2) / 29.1;
+  Serial.print(distance);
+  Serial.println("Cm");
+  lcd.print(7, 1, distance);
+  Blynk.run();
+
+  delay(3500);
 
 }
