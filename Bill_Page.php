@@ -48,7 +48,7 @@
               <a href="./living.html" class="dropdown-item">
                 <i class="material-icons">layers</i> Living Room
               </a>
-              <a href="./Bill_Page.html" class="dropdown-item">
+              <a href="./Bill_Page.php" class="dropdown-item">
                 <i class="material-icons">layers</i> Billing
               </a>
             </div>
@@ -84,7 +84,7 @@
     <div class="container">
       <div class="section text-center">
         <h2 class="title">Total Bill: </h2>
-        <div>
+        <div >
           <?php
             // $user = 'root';
             // $pass = '';
@@ -98,7 +98,6 @@
             // echo "$tobepr";
             $document = file_get_contents('./bill.txt');
             echo $document;
-
           ?>
         </div>
 

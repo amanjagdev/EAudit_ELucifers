@@ -3,8 +3,12 @@
 }
 
 #smalldivision {
-  height: 20vh !important;
+  height: 45vh !important;
  }
+
+#big-text{
+  font-size: 20px !important;
+}
 
 .presentation-page {
   overflow-x: hidden;

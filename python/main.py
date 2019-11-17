@@ -1,26 +1,26 @@
 import wolframalpha 
-import speech_recognition as sr 
+# import speech_recognition as sr 
 
-r = sr.Recognizer()
+# r = sr.Recognizer()
 
-r.dynamic_energy_threshold = True
+# r.dynamic_energy_threshold = True
 
-r.pause_threshold = 2
+# r.pause_threshold = 2
 
-with sr.Microphone() as source:
-    audio = r.listen(source)
+# with sr.Microphone() as source:
+#     audio = r.listen(source)
 
-try:
-    text = r.recognise_google(audio)
+# try:
+#     text = r.recognise_google(audio)
 
-except sr.UnknownValueError:
-    print("Google Speech Recognition could not understand audio")
+# except sr.UnknownValueError:
+#     print("Google Speech Recognition could not understand audio")
 
-except sr.RequestError as e:
-    print("Could not request results from Google Speech Recognition service; {0}".format(e))
+# except sr.RequestError as e:
+#     print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
 
-question = text
+question = input("Questions : ")
 
 app_id = "PX2T6G-L2XQ4H9TE3" #wolfram-alpha id
 
