@@ -5,7 +5,7 @@ const int trigpin = 10;
 const int echopin = 11;
 int servoPin = 5;
 int led = 13;                
-int sp = 2;             
+int sp = 3;             
 int state = LOW;             
 int val = 0;         
 int tmr =0;
@@ -41,7 +41,7 @@ void loop()
 
     delay(40);
     val = digitalRead(sp);   
-    if (val == HIGH || distance < 10) {           // check if the sensor is HIGH
+    if (val == HIGH && distance < 10) {           // check if the sensor is HIGH
       digitalWrite(led, HIGH);   // turn LED ON
       delay(100);
       // scan from 0 to 180 p3
