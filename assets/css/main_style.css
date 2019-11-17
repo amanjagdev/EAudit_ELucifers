@@ -1,3 +1,7 @@
 #id {
     color: black;
 }
+
+#smalldivision {
+    height: 20vh !important;
+   }

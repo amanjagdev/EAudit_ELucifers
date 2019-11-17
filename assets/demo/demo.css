@@ -2,6 +2,10 @@
   margin-bottom: 20px;
 }
 
+#smalldivision {
+  height: 20vh !important;
+ }
+
 .presentation-page {
   overflow-x: hidden;
 }
