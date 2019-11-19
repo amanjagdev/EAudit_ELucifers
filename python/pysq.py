@@ -23,12 +23,32 @@ if needs_creation:
     db_connection.commit()
     print("Database created.")
 
+# Creating Database
 # cursor.executescript("""
-#                     DROP TABLE IF EXISTS elements;
-#                     CREATE TABLE elements (id INTEGER PRIMARY KEY AUTOINCREMENT, Name, date CURDATE )
+#                     DROP TABLE IF EXISTS Eaudit;
+#                     CREATE TABLE Eaudit (sno INTEGER, tdate DATE, start_time TIME, duration TIME ,bill FLOAT)
 #                     """)
 
-portno = "COM5"
-ser = serial.Serial(portno, 9600)
+portno = 'Com5'
+bill = 0
+appliance_watt = 20
+total_usage = 0
+rate = 5
+time_usage =0.0
 
-print(ser)
+arduinosedata = serial.Serial(portno, 9600)
+try:
+    while(1==1):
+        if(arduinosedata.inWaiting()>0):
+            emdata = arduinosedata.readline()
+            insecs = emdata.decode('utf-8')
+except:
+    time_usage = int(insecs) / 3600;
+    total_usage = appliance_watt * time_usage
+    bill = rate* total_usage
+    print(bill)
+
+# cursor.execute('INSERT INTO Eaudit VALUES(%d,"%s","%s","%s","%d")'%(sno),%(tdate),%(bill))
+f = open("../bill.txt","w+")
+bill = str(bill)
+f.write(bill)

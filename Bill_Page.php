@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
-  <title>Smart Eaudits</title>
+  <title>Billing</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-kit.css?v=2.0.6" rel="stylesheet" />
@@ -18,13 +19,16 @@
 <body>
 
 
+
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100"
+    id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="../EAudit_ELucifers/index.html">
+        <a class="navbar-brand" href="../index.html">
           Smart Eaudit </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+          aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
@@ -50,7 +54,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./settings.html">
+            <a class="nav-link" href="link">
               <i class="material-icons">settings</i> Settings
             </a>
           </li>
@@ -67,8 +71,8 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand text-center">
-            <h1>Smart Eaudit</h1>
-            <h3 class="title text-center">Changing the Way you think of Energy</h3>
+            <h1>Billing</h1>
+            <h3 class="title text-center">Manage and check your Bills from here</h3>
           </div>
         </div>
       </div>
@@ -79,12 +83,23 @@
   <div class="main main-raised">
     <div class="container">
       <div class="section text-center">
-        <h2 class="title">Rooms : </h2>
-        <h3><a id="main_link" href="./bedroom.html">Bedroom</a></h3>
-        <h3><a id="main_link" href="./living.html">Living Room</a> </h3>
-        <h3><a id="main_link" href="./Bill_Page.html">Billing</a> </h3>
-        <h2 class="title">Rooms : </h2>
-        <h3><a id="main_link" href="./settings.html">Settings</a> </h3>
+        <h2 class="title">Total Bill: </h2>
+        <div >
+          <?php
+            // $user = 'root';
+            // $pass = '';
+            // $db = 'test_db';
+
+            // $db = new mysqli('localhost', $user , $pass , $db) or die("Unable to connect");
+            
+
+            // $tobe = 'SELECT sno from Eaudit where sno = 1';
+            // $tobepr = mysqli_query($db,$tobe);
+            // echo "$tobepr";
+            $document = file_get_contents('./bill.txt');
+            echo $document;
+          ?>
+        </div>
 
       </div>
     </div>
@@ -99,7 +114,7 @@
       <nav class="float-left">
         <ul>
           <li>
-            <a href="../EAudit_ELucifers/index.html">
+            <a href="https://www.link/">
               Smart Eaudit
             </a>
           </li>
@@ -109,8 +124,8 @@
         &copy;
         <script>
           document.write(new Date().getFullYear())
-        </script>, Created at <a href="http://hacktiet.tech" target="blank">HackTiet</a> with<i class="material-icons">favorite</i> by
-        Team Elucifers. Thanks to our Sponsor Creative-Tim
+        </script>, made with <i class="material-icons">favorite</i> by
+        <a href="https://www.link/" target="blank">Smart Eaudit</a> for a better world.
       </div>
     </div>
   </footer>
@@ -130,7 +145,7 @@
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/material-kit.js?v=2.0.6" type="text/javascript"></script>
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       //init DateTimePickers
       materialKit.initFormExtendedDatetimepickers();
 
@@ -146,8 +161,9 @@
         }, 1000);
       }
     }
-
   </script>
+
+
 </body>
 
 </html>
